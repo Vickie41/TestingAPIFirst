@@ -183,3 +183,4 @@ D:\Su Myat Tun\DIS\Project\TestingForProject\APIImplementationTesting\FirstTesti
 D:\Su Myat Tun\DIS\Project\TestingForProject\APIImplementationTesting\FirstTestingAPI\obj\Debug\net8.0\FirstTestingAPI.genruntimeconfig.cache
 D:\Su Myat Tun\DIS\Project\TestingForProject\APIImplementationTesting\FirstTestingAPI\obj\Debug\net8.0\ref\FirstTestingAPI.dll
 D:\Su Myat Tun\DIS\Project\TestingForProject\APIImplementationTesting\FirstTestingAPI\obj\Debug\net8.0\FirstTestingAPI.sourcelink.json
+D:\Su Myat Tun\DIS\Project\TestingForProject\APIImplementationTesting\FirstTestingAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

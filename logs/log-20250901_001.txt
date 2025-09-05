@@ -1,0 +1,2 @@
+2025-09-01 15:10:40.102 +06:30 [WRN] Failed to determine the https port for redirect.
+2025-09-01 15:10:43.140 +06:30 [INF] User admin logged in successfully

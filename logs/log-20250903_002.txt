@@ -1,0 +1,9 @@
+2025-09-03 12:26:16.310 +06:30 [WRN] Failed to determine the https port for redirect.
+2025-09-03 12:29:26.876 +06:30 [INF] User admin logged in successfully
+2025-09-03 12:29:49.568 +06:30 [INF] Token validated successfully for user: admin
+2025-09-03 14:22:33.419 +06:30 [ERR] Authentication failed
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/3/2025 6:59:26 AM', Current time (UTC): '9/3/2025 7:52:33 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)

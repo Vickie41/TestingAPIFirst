@@ -1,0 +1,11 @@
+2025-09-05 15:21:51.403 +06:30 [WRN] Failed to determine the https port for redirect.
+2025-09-05 15:21:51.483 +06:30 [WRN] Failed login attempt for username: d8BSYlDF5wg9zhYYGGMz
+2025-09-05 15:22:23.591 +06:30 [INF] User admin logged in successfully
+2025-09-05 15:22:51.842 +06:30 [INF] Token validated successfully for user: admin
+2025-09-05 15:23:05.847 +06:30 [INF] Token validated successfully for user: admin
+2025-09-05 15:23:13.931 +06:30 [INF] Token validated successfully for user: admin
+2025-09-05 15:23:27.385 +06:30 [INF] Token validated successfully for user: admin
+2025-09-05 15:23:35.602 +06:30 [INF] Token validated successfully for user: admin
+2025-09-05 15:28:21.534 +06:30 [INF] Token validated successfully for user: admin
+2025-09-05 15:29:12.871 +06:30 [INF] Token validated successfully for user: admin
+2025-09-05 15:31:06.118 +06:30 [WRN] Failed to determine the https port for redirect.
