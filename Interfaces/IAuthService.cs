@@ -1,10 +1,9 @@
-﻿using FirstTestingAPI.Models;
+﻿using FirstTestingAPI.Models.Requests;
 
 namespace FirstTestingAPI.Interfaces
 {
     public interface IAuthService
     {
-        LoginResponse GenerateToken(string username);
-        bool ValidateCredentials(string username, string password);
+        Task<string> AuthenticateAsync(LoginRequest loginRequest);
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7J9H8tcLa/E=",
+  "dgSpecHash": "CP5lMH/Y6SI=",
   "success": true,
-  "projectFilePath": "D:\\Su Myat Tun\\DIS\\Project\\TestingForProject\\APIImplementationTesting\\FirstTestingAPI\\FirstTestingAPI.csproj",
+  "projectFilePath": "D:\\Su Myat Tun\\DIS\\Project\\TestingForProject\\LoanAPITesting\\LoanAPITesting\\FirstTestingAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

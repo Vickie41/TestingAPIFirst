@@ -1,12 +1,11 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Company Info API",
-    "description": "API for managing company information with JWT authentication",
+    "title": "First Testing API",
     "version": "v1"
   },
   "paths": {
-    "/api/Auth/login": {
+    "/api/v1/auth/login": {
       "post": {
         "tags": [
           "Auth"
@@ -37,242 +36,26 @@
         }
       }
     },
-    "/api/Auth/validate": {
+    "/api/v1/exchange/loan/create": {
       "post": {
         "tags": [
-          "Auth"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/CompanyInfo/GetCompanyByRegistrationNo": {
-      "get": {
-        "tags": [
-          "CompanyInfo"
-        ],
-        "parameters": [
-          {
-            "name": "registrationNo",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Unprocessable Content",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/api/CompanyInfo": {
-      "get": {
-        "tags": [
-          "CompanyInfo"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "CompanyInfo"
+          "Loan"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateCompanyRequest"
+                "$ref": "#/components/schemas/CreateLoanRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateCompanyRequest"
+                "$ref": "#/components/schemas/CreateLoanRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateCompanyRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Unprocessable Content",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/api/CompanyInfo/{registrationNo}": {
-      "put": {
-        "tags": [
-          "CompanyInfo"
-        ],
-        "parameters": [
-          {
-            "name": "registrationNo",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCompanyRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCompanyRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCompanyRequest"
+                "$ref": "#/components/schemas/CreateLoanRequest"
               }
             }
           }
@@ -280,79 +63,80 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Unprocessable Content",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/api/v1/exchange/loan/repayment": {
+      "post": {
         "tags": [
-          "CompanyInfo"
+          "Loan"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RepaymentRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RepaymentRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RepaymentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/exchange/report/search/loans/all": {
+      "post": {
+        "tags": [
+          "Loan"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchLoansRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchLoansRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchLoansRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/exchange/credit/search/history/nrc/{nrc}": {
+      "get": {
+        "tags": [
+          "Loan"
         ],
         "parameters": [
           {
-            "name": "registrationNo",
+            "name": "nrc",
             "in": "path",
             "required": true,
             "schema": {
@@ -363,49 +147,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -452,38 +193,270 @@
   },
   "components": {
     "schemas": {
-      "CreateCompanyRequest": {
-        "required": [
-          "companyName",
-          "registrationDate",
-          "registrationNo"
-        ],
+      "Address": {
         "type": "object",
         "properties": {
-          "companyName": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string"
+          "addressTypeCode": {
+            "type": "string",
+            "nullable": true
           },
-          "registrationNo": {
-            "maxLength": 9,
-            "minLength": 9,
-            "pattern": "^\\d{9}$",
-            "type": "string"
+          "stateOrRegionCode": {
+            "type": "string",
+            "nullable": true
           },
-          "registrationDate": {
+          "townshipCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "remark": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateLoanRequest": {
+        "type": "object",
+        "properties": {
+          "customerInformation": {
+            "$ref": "#/components/schemas/CustomerInformation"
+          },
+          "loanAccount": {
+            "$ref": "#/components/schemas/LoanAccount"
+          },
+          "loanCollateral": {
+            "$ref": "#/components/schemas/LoanCollateral"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomerInformation": {
+        "type": "object",
+        "properties": {
+          "nameEnglish": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameMM": {
+            "type": "string",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "dob": {
             "type": "string",
             "format": "date-time"
           },
-          "companyType": {
-            "maxLength": 50,
-            "minLength": 0,
+          "fatherNameEnglish": {
+            "type": "string",
+            "nullable": true
+          },
+          "fatherNameMM": {
+            "type": "string",
+            "nullable": true
+          },
+          "marital": {
+            "type": "string",
+            "nullable": true
+          },
+          "idType": {
+            "type": "string",
+            "nullable": true
+          },
+          "nidType": {
+            "type": "string",
+            "nullable": true
+          },
+          "nrcRegion": {
+            "type": "string",
+            "nullable": true
+          },
+          "nrcNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "race": {
+            "type": "string",
+            "nullable": true
+          },
+          "nationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "occupation": {
+            "type": "string",
+            "nullable": true
+          },
+          "idcNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "idcExpireAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "phone": {
             "type": "string",
             "nullable": true
           },
           "address": {
-            "maxLength": 200,
-            "minLength": 0,
+            "$ref": "#/components/schemas/Address"
+          },
+          "spouse": {
+            "$ref": "#/components/schemas/Spouse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoanAccount": {
+        "type": "object",
+        "properties": {
+          "organizationLoanID": {
+            "type": "string",
+            "nullable": true
+          },
+          "branchName": {
+            "type": "string",
+            "nullable": true
+          },
+          "separateAccountNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicantTypeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "productTypeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "productStatusCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "principalAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "disbursedAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "disbursedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expiredDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "interestRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "principalInstalmentAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "principalPaymentFrequency": {
+            "type": "string",
+            "nullable": true
+          },
+          "interestInstalmentAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "interestPaymentFrequency": {
+            "type": "string",
+            "nullable": true
+          },
+          "principalOverdueAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "interestOverdueAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "principalOutstandingAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "interestOutstandingAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "tenure": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accountTypeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "smE_Flag": {
+            "type": "boolean"
+          },
+          "industrialSectorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastPaymentAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "lastPaymentDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastPaymentFor": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoanCollateral": {
+        "type": "object",
+        "properties": {
+          "collateralType": {
+            "type": "string",
+            "nullable": true
+          },
+          "collateralReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "marketValue": {
+            "type": "number",
+            "format": "double"
+          },
+          "forceSaleValue": {
+            "type": "number",
+            "format": "double"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "townshipCode": {
             "type": "string",
             "nullable": true
           }
@@ -500,44 +473,98 @@
           "username": {
             "maxLength": 20,
             "minLength": 3,
-            "pattern": "^[a-zA-Z0-9_]+$",
             "type": "string"
           },
           "password": {
             "maxLength": 100,
             "minLength": 8,
-            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^\\da-zA-Z]).{8,}$",
             "type": "string"
           }
         },
         "additionalProperties": false
       },
-      "ProblemDetails": {
+      "RepaymentRequest": {
         "type": "object",
         "properties": {
-          "type": {
+          "mcisAccountNumber": {
             "type": "string",
             "nullable": true
           },
-          "title": {
+          "repaymentAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "repaymentFor": {
             "type": "string",
             "nullable": true
           },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
+          "repaymentDate": {
             "type": "string",
-            "nullable": true
+            "format": "date-time"
           },
-          "instance": {
+          "organizationRepaymentId": {
             "type": "string",
             "nullable": true
           }
         },
-        "additionalProperties": { }
+        "additionalProperties": false
+      },
+      "SearchLoansRequest": {
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Spouse": {
+        "type": "object",
+        "properties": {
+          "name_Eng": {
+            "type": "string",
+            "nullable": true
+          },
+          "name_MM": {
+            "type": "string",
+            "nullable": true
+          },
+          "idType": {
+            "type": "string",
+            "nullable": true
+          },
+          "nidType": {
+            "type": "string",
+            "nullable": true
+          },
+          "nrC_Region": {
+            "type": "string",
+            "nullable": true
+          },
+          "nrC_No": {
+            "type": "string",
+            "nullable": true
+          },
+          "idCard_No": {
+            "type": "string",
+            "nullable": true
+          },
+          "idCard_ExpireAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "WeatherForecast": {
         "type": "object",
@@ -565,10 +592,10 @@
     },
     "securitySchemes": {
       "Bearer": {
-        "type": "http",
-        "description": "Enter 'Bearer {your token}'",
-        "scheme": "Bearer",
-        "bearerFormat": "JWT"
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        "name": "Authorization",
+        "in": "header"
       }
     }
   },

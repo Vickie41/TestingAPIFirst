@@ -2,63 +2,53 @@
 using System.Security.Claims;
 using System.Text;
 using FirstTestingAPI.Interfaces;
-using FirstTestingAPI.Models;
-using Microsoft.Extensions.Options;
+using FirstTestingAPI.Models.Requests;
 using Microsoft.IdentityModel.Tokens;
 
 namespace FirstTestingAPI.Services
 {
     public class AuthService : IAuthService
     {
-        private readonly JwtSettings _jwtSettings;
+        private readonly IConfiguration _configuration;
 
-        public AuthService(IOptions<JwtSettings> jwtSettings)
+        public AuthService(IConfiguration configuration)
         {
-            _jwtSettings = jwtSettings.Value;
+            _configuration = configuration;
         }
 
-        public LoginResponse GenerateToken(string username)
+        public async Task<string> AuthenticateAsync(LoginRequest loginRequest)
         {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_jwtSettings.Secret);
+            // For demo purposes, using simple authentication
+            // In production, use proper authentication with database
+            if (loginRequest.Username == "admin" && loginRequest.Password == "password")
+            {
+                return await Task.FromResult(GenerateJwtToken(loginRequest.Username));
+            }
 
+            throw new UnauthorizedAccessException("Invalid credentials");
+        }
+
+        private string GenerateJwtToken(string username)
+        {
+            var jwtSettings = _configuration.GetSection("JwtSettings");
+            var key = Encoding.ASCII.GetBytes(jwtSettings["Secret"]!);
+
+            var tokenHandler = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Name, username),
-                    new Claim(ClaimTypes.Role, "User")
+                    new Claim(ClaimTypes.Role, "Admin") // Add roles as needed
                 }),
-                Expires = DateTime.UtcNow.AddMinutes(_jwtSettings.ExpiryMinutes),
-                Issuer = _jwtSettings.Issuer,
-                Audience = _jwtSettings.Audience,
-                SigningCredentials = new SigningCredentials(
-                    new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                Expires = DateTime.UtcNow.AddMinutes(Convert.ToDouble(jwtSettings["ExpiryMinutes"])),
+                Issuer = jwtSettings["Issuer"],
+                Audience = jwtSettings["Audience"],
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
-
-            return new LoginResponse
-            {
-                Token = tokenString,
-                Expiry = token.ValidTo,
-                Message = "Authentication successful",
-                StatusCode = 200
-            };
-        }
-
-        public bool ValidateCredentials(string username, string password)
-        {
-            // Replace this with your actual user validation logic
-            var validUsers = new Dictionary<string, string>
-            {
-                { "admin", "Admin@123" },
-                { "user", "User@123" },
-                { "apiuser", "Apip@ssword" }
-            };
-
-            return validUsers.TryGetValue(username, out var validPassword) && validPassword == password;
+            return tokenHandler.WriteToken(token);
         }
     }
 }

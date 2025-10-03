@@ -1,4 +1,4 @@
-﻿namespace FirstTestingAPI.Models
+﻿namespace FirstTestingAPI.Models.Responses
 {
     public class LoginResponse
     {

@@ -2,272 +2,82 @@
   {
     "ContainingType": "FirstTestingAPI.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "api/Auth/login",
+    "RelativePath": "api/v1/auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "FirstTestingAPI.Models.LoginRequest",
+        "Name": "loginRequest",
+        "Type": "FirstTestingAPI.Models.Requests.LoginRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FirstTestingAPI.Controllers.AuthController",
-    "Method": "ValidateToken",
-    "RelativePath": "api/Auth/validate",
-    "HttpMethod": "POST",
+    "ContainingType": "FirstTestingAPI.Controllers.LoanController",
+    "Method": "GetCreditHistoryByNRC",
+    "RelativePath": "api/v1/exchange/credit/search/history/nrc/{nrc}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "authorization",
+        "Name": "nrc",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FirstTestingAPI.Controllers.CompanyInfoController",
-    "Method": "GetAllCompanies",
-    "RelativePath": "api/CompanyInfo",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 204
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ]
-  },
-  {
-    "ContainingType": "FirstTestingAPI.Controllers.CompanyInfoController",
-    "Method": "CreateCompany",
-    "RelativePath": "api/CompanyInfo",
+    "ContainingType": "FirstTestingAPI.Controllers.LoanController",
+    "Method": "CreateLoan",
+    "RelativePath": "api/v1/exchange/loan/create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "request",
-        "Type": "FirstTestingAPI.Models.CreateCompanyRequest",
+        "Type": "FirstTestingAPI.Models.Requests.CreateLoanRequest",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 201
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 409
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 422
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "FirstTestingAPI.Controllers.CompanyInfoController",
-    "Method": "UpdateCompany",
-    "RelativePath": "api/CompanyInfo/{registrationNo}",
-    "HttpMethod": "PUT",
+    "ContainingType": "FirstTestingAPI.Controllers.LoanController",
+    "Method": "ProcessRepayment",
+    "RelativePath": "api/v1/exchange/loan/repayment",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
-      {
-        "Name": "registrationNo",
-        "Type": "System.String",
-        "IsRequired": true
-      },
       {
         "Name": "request",
-        "Type": "FirstTestingAPI.Models.CreateCompanyRequest",
+        "Type": "FirstTestingAPI.Models.Requests.RepaymentRequest",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 422
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "FirstTestingAPI.Controllers.CompanyInfoController",
-    "Method": "DeleteCompany",
-    "RelativePath": "api/CompanyInfo/{registrationNo}",
-    "HttpMethod": "DELETE",
+    "ContainingType": "FirstTestingAPI.Controllers.LoanController",
+    "Method": "SearchLoans",
+    "RelativePath": "api/v1/exchange/report/search/loans/all",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "registrationNo",
-        "Type": "System.String",
+        "Name": "request",
+        "Type": "FirstTestingAPI.Models.Requests.SearchLoansRequest",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 403
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ]
-  },
-  {
-    "ContainingType": "FirstTestingAPI.Controllers.CompanyInfoController",
-    "Method": "GetCompanyByRegistrationNo",
-    "RelativePath": "api/CompanyInfo/GetCompanyByRegistrationNo",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "registrationNo",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 422
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "FirstTestingAPI.Controllers.WeatherForecastController",

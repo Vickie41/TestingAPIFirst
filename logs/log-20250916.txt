@@ -1,0 +1,99 @@
+2025-09-16 13:18:25.343 +06:30 [WRN] Failed to determine the https port for redirect.
+2025-09-16 13:20:36.290 +06:30 [WRN] Failed to determine the https port for redirect.
+2025-09-16 13:41:06.149 +06:30 [WRN] Failed to determine the https port for redirect.
+2025-09-16 13:41:07.387 +06:30 [WRN] Login failed for user: string
+System.UnauthorizedAccessException: Invalid credentials
+   at FirstTestingAPI.Services.AuthService.AuthenticateAsync(LoginRequest loginRequest) in D:\Su Myat Tun\DIS\Project\TestingForProject\LoanAPITesting\LoanAPITesting\Services\AuthService.cs:line 29
+   at FirstTestingAPI.Controllers.AuthController.Login(LoginRequest loginRequest) in D:\Su Myat Tun\DIS\Project\TestingForProject\LoanAPITesting\LoanAPITesting\Controllers\AuthController.cs:line 26
+2025-09-16 13:41:30.667 +06:30 [WRN] Login failed for user: ‌admin
+System.UnauthorizedAccessException: Invalid credentials
+   at FirstTestingAPI.Services.AuthService.AuthenticateAsync(LoginRequest loginRequest) in D:\Su Myat Tun\DIS\Project\TestingForProject\LoanAPITesting\LoanAPITesting\Services\AuthService.cs:line 29
+   at FirstTestingAPI.Controllers.AuthController.Login(LoginRequest loginRequest) in D:\Su Myat Tun\DIS\Project\TestingForProject\LoanAPITesting\LoanAPITesting\Controllers\AuthController.cs:line 26
+2025-09-16 13:41:44.258 +06:30 [WRN] Login failed for user: ‌admin
+System.UnauthorizedAccessException: Invalid credentials
+   at FirstTestingAPI.Services.AuthService.AuthenticateAsync(LoginRequest loginRequest) in D:\Su Myat Tun\DIS\Project\TestingForProject\LoanAPITesting\LoanAPITesting\Services\AuthService.cs:line 29
+   at FirstTestingAPI.Controllers.AuthController.Login(LoginRequest loginRequest) in D:\Su Myat Tun\DIS\Project\TestingForProject\LoanAPITesting\LoanAPITesting\Controllers\AuthController.cs:line 26
+2025-09-16 13:49:43.630 +06:30 [WRN] Failed to determine the https port for redirect.
+2025-09-16 13:52:10.597 +06:30 [WRN] Failed to determine the https port for redirect.
+2025-09-16 13:57:21.977 +06:30 [ERR] An exception occurred while iterating over the results of a query for context type 'FirstTestingAPI.Data.LoanDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): The offset specified in a OFFSET clause may not be negative.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:7536e2a0-b37f-4873-a4e3-02f634a50d44
+Error Number:10742,State:1,Class:15
+Microsoft.Data.SqlClient.SqlException (0x80131904): The offset specified in a OFFSET clause may not be negative.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:7536e2a0-b37f-4873-a4e3-02f634a50d44
+Error Number:10742,State:1,Class:15
+2025-09-16 13:57:21.996 +06:30 [ERR] Error searching loans
+Microsoft.Data.SqlClient.SqlException (0x80131904): The offset specified in a OFFSET clause may not be negative.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at FirstTestingAPI.Repositories.LoanRepository.SearchLoansAsync(SearchLoansRequest request) in D:\Su Myat Tun\DIS\Project\TestingForProject\LoanAPITesting\LoanAPITesting\Repositories\LoanRepository.cs:line 191
+ClientConnectionId:7536e2a0-b37f-4873-a4e3-02f634a50d44
+Error Number:10742,State:1,Class:15
+2025-09-16 13:57:22.016 +06:30 [ERR] Error searching loans
+Microsoft.Data.SqlClient.SqlException (0x80131904): The offset specified in a OFFSET clause may not be negative.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at FirstTestingAPI.Repositories.LoanRepository.SearchLoansAsync(SearchLoansRequest request) in D:\Su Myat Tun\DIS\Project\TestingForProject\LoanAPITesting\LoanAPITesting\Repositories\LoanRepository.cs:line 191
+   at FirstTestingAPI.Services.LoanService.SearchLoansAsync(SearchLoansRequest request) in D:\Su Myat Tun\DIS\Project\TestingForProject\LoanAPITesting\LoanAPITesting\Services\LoanService.cs:line 54
+ClientConnectionId:7536e2a0-b37f-4873-a4e3-02f634a50d44
+Error Number:10742,State:1,Class:15
+2025-09-16 13:57:22.022 +06:30 [ERR] Error searching loans
+Microsoft.Data.SqlClient.SqlException (0x80131904): The offset specified in a OFFSET clause may not be negative.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at FirstTestingAPI.Repositories.LoanRepository.SearchLoansAsync(SearchLoansRequest request) in D:\Su Myat Tun\DIS\Project\TestingForProject\LoanAPITesting\LoanAPITesting\Repositories\LoanRepository.cs:line 191
+   at FirstTestingAPI.Services.LoanService.SearchLoansAsync(SearchLoansRequest request) in D:\Su Myat Tun\DIS\Project\TestingForProject\LoanAPITesting\LoanAPITesting\Services\LoanService.cs:line 54
+   at FirstTestingAPI.Controllers.LoanController.SearchLoans(SearchLoansRequest request) in D:\Su Myat Tun\DIS\Project\TestingForProject\LoanAPITesting\LoanAPITesting\Controllers\LoanController.cs:line 90
+ClientConnectionId:7536e2a0-b37f-4873-a4e3-02f634a50d44
+Error Number:10742,State:1,Class:15
+2025-09-16 15:17:02.154 +06:30 [WRN] Failed to determine the https port for redirect.

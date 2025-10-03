@@ -1,11 +1,12 @@
 ﻿using FirstTestingAPI.Interfaces;
-using FirstTestingAPI.Models;
+using FirstTestingAPI.Models.Requests;
+using FirstTestingAPI.Models.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstTestingAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/v1/auth")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
@@ -18,49 +19,45 @@ namespace FirstTestingAPI.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginRequest request)
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ApiResponse<object>.ErrorResponse("Invalid request data", 400));
-                }
+                var token = await _authService.AuthenticateAsync(loginRequest);
 
-                if (_authService.ValidateCredentials(request.Username, request.Password))
-                {
-                    var response = _authService.GenerateToken(request.Username);
-                    _logger.LogInformation("User {Username} logged in successfully", request.Username);
-                    return Ok(ApiResponse<LoginResponse>.SuccessResponse(response, "Login successful"));
-                }
 
-                _logger.LogWarning("Failed login attempt for username: {Username}", request.Username);
-                return Unauthorized(ApiResponse<object>.ErrorResponse("Invalid username or password", 401));
+                return Ok(new ApiResponse<LoginResponse>
+                {
+                    IsSuccess = true,
+                    Message = "Login successful",
+                    Data = new LoginResponse
+                    {
+                        Token = token,
+                        Expiry = DateTime.UtcNow.AddMinutes(30), // Match your JWT expiry
+                        Message = "Authentication successful",
+                        StatusCode = 200
+                    }
+                });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                _logger.LogWarning(ex, "Login failed for user: {Username}", loginRequest.Username);
+                return Unauthorized(new ApiResponse<object>
+                {
+                    IsSuccess = false,
+                    Message = "Invalid credentials",
+                    Data = null
+                });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error during login for username: {Username}", request.Username);
-                return StatusCode(500, ApiResponse<object>.ErrorResponse("Internal server error", 500));
-            }
-        }
-
-        [HttpPost("validate")]
-        public IActionResult ValidateToken([FromHeader] string authorization)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(authorization) || !authorization.StartsWith("Bearer "))
+                _logger.LogError(ex, "Error during login");
+                return StatusCode(500, new ApiResponse<object>
                 {
-                    return Unauthorized(ApiResponse<object>.ErrorResponse("Invalid token format", 401));
-                }
-
-                var token = authorization.Substring("Bearer ".Length).Trim();
-                return Ok(ApiResponse<object>.SuccessResponse(null, "Token is valid"));
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error validating token");
-                return Unauthorized(ApiResponse<object>.ErrorResponse("Invalid token", 401));
+                    IsSuccess = false,
+                    Message = "Internal server error",
+                    Data = null
+                });
             }
         }
     }
