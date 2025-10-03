@@ -1,0 +1,22 @@
+My First Testing folder 
+
+FirstTestingAPI/
+├── Controllers/
+│   ├── AuthController.cs
+│   └── CompanyInfoController.cs
+├── Models/
+│   ├── TbCompanyInfo.cs
+│   ├── CreateCompanyRequest.cs
+│   ├── JwtSettings.cs
+│   ├── LoginRequest.cs
+│   ├── LoginResponse.cs
+│   ├── ApiResponse.cs
+│   └── CompanyInfoResponse.cs
+├── Interfaces/
+│   ├── ICompanyInfoService.cs
+│   └── IAuthService.cs
+├── Services/
+│   ├── CompanyInfoService.cs
+│   └── AuthService.cs
+├── Program.cs
+└── appsettings.json
