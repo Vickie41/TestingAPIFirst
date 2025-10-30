@@ -1,6 +1,92 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+# Visual Studio / ASP.NET Core .gitignore
 ################################################################################
 
-/.vs
-/bin/Debug/net8.0
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio folders
+.vs/
+.vscode/
+
+# Build directories for various frameworks
+Debug/
+Release/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]uild/
+out/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+*.nuspec
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+
+# Backup & cache
+*.bak
+*.cache
+*.pdb
+*.obj
+*.dll
+*.exe
+*.appx
+*.log
+*.tmp
+
+# Publish folders
+publish/
+bin/Debug/
+bin/Release/
+obj/Debug/
+obj/Release/
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.coverage
+*.coveragexml
+
+# Rider / JetBrains
+.idea/
+
+# Windows image cache
+Thumbs.db
+ehthumbs.db
+
+# OS-generated files
+.DS_Store
+Icon?
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Python, Node, or other tool caches
+__pycache__/
+node_modules/
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
