@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FirstTestingAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa96970c7e76853e5404ef39ff80fd48bb302d86")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24313a4790a05b1acac6148c5c5afe84e903ec31")]
 [assembly: System.Reflection.AssemblyProductAttribute("FirstTestingAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FirstTestingAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
