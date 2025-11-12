@@ -18,8 +18,7 @@ namespace FirstTestingAPI.Services
 
         public async Task<string> AuthenticateAsync(LoginRequest loginRequest)
         {
-            // For demo purposes, using simple authentication
-            // In production, use proper authentication with database
+            
             if (loginRequest.Username == "admin" && loginRequest.Password == "password")
             {
                 return await Task.FromResult(GenerateJwtToken(loginRequest.Username));
@@ -39,7 +38,7 @@ namespace FirstTestingAPI.Services
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Name, username),
-                    new Claim(ClaimTypes.Role, "Admin") // Add roles as needed
+                    new Claim(ClaimTypes.Role, "Admin") 
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(Convert.ToDouble(jwtSettings["ExpiryMinutes"])),
                 Issuer = jwtSettings["Issuer"],

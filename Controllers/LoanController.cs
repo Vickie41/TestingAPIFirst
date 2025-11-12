@@ -22,9 +22,15 @@ namespace FirstTestingAPI.Controllers
             _logger = logger;
         }
 
+
+        [HttpGet("loan/healthcheck")]
+        public IActionResult HealthCheck()
+        {
+            return Ok("Loan Service is running.");
+        }
+
         [HttpPost("loan/create")]
       
-
         public async Task<IActionResult> CreateLoan([FromBody] CreateLoanRequest request)
         {
             try
