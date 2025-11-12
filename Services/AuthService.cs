@@ -47,7 +47,32 @@ namespace FirstTestingAPI.Services
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
+<<<<<<< HEAD
             return tokenHandler.WriteToken(token);
+=======
+            var tokenString = tokenHandler.WriteToken(token);
+
+            return new LoginResponse
+            {
+                Token = tokenString,
+                Expiry = token.ValidTo,
+                Message = "Authentication successful",
+                StatusCode = 200
+            };
+        }
+
+        public bool ValidateCredentials(string username, string password)
+        {
+            // Replace this with your actual user validation logic
+            var validUsers = new Dictionary<string, string>
+            {
+                { "admin_1", "Admin@123" },
+                { "user", "User@123" },
+                { "apiuser", "Apip@ssword" }
+            };
+
+            return validUsers.TryGetValue(username, out var validPassword) && validPassword == password;
+>>>>>>> 49bafc2 (Remove obj folder and update .gitignore)
         }
     }
 }

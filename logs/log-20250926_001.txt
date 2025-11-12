@@ -1,0 +1,5 @@
+2025-09-26 13:36:08.846 +06:30 [WRN] Failed to determine the https port for redirect.
+2025-09-26 13:37:30.175 +06:30 [WRN] Failed to determine the https port for redirect.
+2025-09-26 13:37:30.636 +06:30 [INF] User admin_1 logged in successfully
+2025-09-26 13:38:05.126 +06:30 [INF] Token validated successfully for user: admin_1
+2025-09-26 13:38:31.395 +06:30 [INF] User admin_1 logged in successfully
