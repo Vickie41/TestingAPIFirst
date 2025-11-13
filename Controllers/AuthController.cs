@@ -30,13 +30,14 @@ namespace FirstTestingAPI.Controllers
                 {
                     IsSuccess = true,
                     Message = "Login successful",
-                    Data = new LoginResponse
-                    {
-                        Token = token,
-                        Expiry = DateTime.UtcNow.AddMinutes(30), // Match your JWT expiry
-                        Message = "Authentication successful",
-                        StatusCode = 200
-                    }
+                    //Data = new LoginResponse
+                    //{
+                    //    Token = token,
+                    //    Expiry = DateTime.UtcNow.AddMinutes(30), // Match your JWT expiry
+                    //    Message = "Authentication successful",
+                    //    StatusCode = 200
+                    //}
+                    Data = token
                 });
             }
             catch (UnauthorizedAccessException ex)

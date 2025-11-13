@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using FirstTestingAPI.Interfaces;
 using FirstTestingAPI.Models.Requests;
+using FirstTestingAPI.Models.Responses; // Make sure this namespace exists
 using Microsoft.IdentityModel.Tokens;
 
 namespace FirstTestingAPI.Services
@@ -16,18 +17,15 @@ namespace FirstTestingAPI.Services
             _configuration = configuration;
         }
 
-        public async Task<string> AuthenticateAsync(LoginRequest loginRequest)
+        public async Task<LoginResponse> AuthenticateAsync(LoginRequest loginRequest)
         {
-            
-            if (loginRequest.Username == "admin" && loginRequest.Password == "password")
-            {
-                return await Task.FromResult(GenerateJwtToken(loginRequest.Username));
-            }
+            if (!ValidateCredentials(loginRequest.Username, loginRequest.Password))
+                throw new UnauthorizedAccessException("Invalid credentials");
 
-            throw new UnauthorizedAccessException("Invalid credentials");
+            return await Task.FromResult(GenerateJwtToken(loginRequest.Username));
         }
 
-        private string GenerateJwtToken(string username)
+        private LoginResponse GenerateJwtToken(string username)
         {
             var jwtSettings = _configuration.GetSection("JwtSettings");
             var key = Encoding.ASCII.GetBytes(jwtSettings["Secret"]!);
@@ -38,18 +36,17 @@ namespace FirstTestingAPI.Services
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Name, username),
-                    new Claim(ClaimTypes.Role, "Admin") 
+                    new Claim(ClaimTypes.Role, "Admin")
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(Convert.ToDouble(jwtSettings["ExpiryMinutes"])),
                 Issuer = jwtSettings["Issuer"],
                 Audience = jwtSettings["Audience"],
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                SigningCredentials = new SigningCredentials(
+                    new SymmetricSecurityKey(key),
+                    SecurityAlgorithms.HmacSha256Signature)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
-<<<<<<< HEAD
-            return tokenHandler.WriteToken(token);
-=======
             var tokenString = tokenHandler.WriteToken(token);
 
             return new LoginResponse
@@ -61,18 +58,18 @@ namespace FirstTestingAPI.Services
             };
         }
 
-        public bool ValidateCredentials(string username, string password)
+        private bool ValidateCredentials(string username, string password)
         {
-            // Replace this with your actual user validation logic
+            // Replace with your real authentication logic or DB validation
             var validUsers = new Dictionary<string, string>
             {
+                { "admin", "password" },
                 { "admin_1", "Admin@123" },
                 { "user", "User@123" },
                 { "apiuser", "Apip@ssword" }
             };
 
             return validUsers.TryGetValue(username, out var validPassword) && validPassword == password;
->>>>>>> 49bafc2 (Remove obj folder and update .gitignore)
         }
     }
 }
